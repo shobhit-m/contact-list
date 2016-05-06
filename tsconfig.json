@@ -1,0 +1,25 @@
+/*
+  This tsconfig.json file guides the TypeScript compiler
+  to know more about tsconfig.json, go to
+  http://www.typescriptlang.org/docs/handbook/tsconfig.json.html
+  you can read more about compiler options from
+  http://www.typescriptlang.org/docs/handbook/compiler-options.html
+*/
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "outDir": "js-map/",
+    "noImplicitAny": false
+  },
+  "exclude": [
+    "node_modules",
+    "typings/main",
+    "typings/main.d.ts"
+  ]
+}
