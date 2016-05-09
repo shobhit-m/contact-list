@@ -9,41 +9,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var router_deprecated_1 = require('@angular/router-deprecated');
-var header_component_1 = require('./header.component');
-var contact_list_component_1 = require('./contact-list.component');
-var contact_form_component_1 = require('./contact-form.component');
 var ContainerComponent = (function () {
     function ContainerComponent() {
     }
     ContainerComponent = __decorate([
-        router_deprecated_1.RouteConfig([
-            {
-                path: '/contact-list',
-                name: 'ContactList',
-                component: contact_list_component_1.ContactListComponent,
-                useAsDefault: true
-            },
-            {
-                path: '/contact/new',
-                name: 'ContactFormNew',
-                component: contact_form_component_1.ContactFormComponent
-            },
-            {
-                path: '/contact/:id',
-                name: 'ContactForm',
-                component: contact_form_component_1.ContactFormComponent
-            },
-            {
-                path: '/*other',
-                name: 'Other',
-                redirectTo: ['ContactList']
-            },
-        ]),
         core_1.Component({
             selector: 'container',
-            templateUrl: "app/templates/container.tpl.html",
-            directives: [header_component_1.HeaderComponent, contact_list_component_1.ContactListComponent, contact_form_component_1.ContactFormComponent, router_deprecated_1.ROUTER_DIRECTIVES]
+            template: "<h2>Hello Angular 2!! </h2>",
         }), 
         __metadata('design:paramtypes', [])
     ], ContainerComponent);
