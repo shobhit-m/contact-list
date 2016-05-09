@@ -1,6 +1,6 @@
 import { bootstrap }    from '@angular/platform-browser-dynamic';
-import { AppComponent } from './components/app.component';
+import { ContainerComponent } from './components/container.component';
 import { ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
 
-bootstrap(AppComponent, [ROUTER_PROVIDERS]);
+bootstrap(ContainerComponent, [ROUTER_PROVIDERS]);

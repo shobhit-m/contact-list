@@ -17,6 +17,29 @@ var ContainerComponent = (function () {
     function ContainerComponent() {
     }
     ContainerComponent = __decorate([
+        router_deprecated_1.RouteConfig([
+            {
+                path: '/contact-list',
+                name: 'ContactList',
+                component: contact_list_component_1.ContactListComponent,
+                useAsDefault: true
+            },
+            {
+                path: '/contact/new',
+                name: 'ContactFormNew',
+                component: contact_form_component_1.ContactFormComponent
+            },
+            {
+                path: '/contact/:id',
+                name: 'ContactForm',
+                component: contact_form_component_1.ContactFormComponent
+            },
+            {
+                path: '/*other',
+                name: 'Other',
+                redirectTo: ['ContactList']
+            },
+        ]),
         core_1.Component({
             selector: 'container',
             templateUrl: "app/templates/container.tpl.html",
