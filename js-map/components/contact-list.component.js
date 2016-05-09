@@ -10,25 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var autogrow_directive_1 = require("../directives/autogrow.directive");
+var contact_list_service_1 = require("../services/contact-list.service");
 var ContactListComponent = (function () {
-    function ContactListComponent() {
-        this.contactList = [
-            { id: 1, firstName: "Kishan", lastName: "Yadav", email: "kishan.yadav@metacube.com", mobNumber: "9414234126" },
-            { id: 2, firstName: "Ram", lastName: "Sharma", email: "ram.sharma@metacube.com", mobNumber: "9432456781" },
-            { id: 3, firstName: "Lakshman", lastName: "Singh", email: "lakshman.singh@metacube.com", mobNumber: "9876567856" },
-            { id: 4, firstName: "Bharat", lastName: "Khan", email: "bharat.khan@metacube.com", mobNumber: "9878612345" },
-            { id: 5, firstName: "Lucy", lastName: "Doe", email: "lucy.doe@metacube.com", mobNumber: "9786533212" },
-            { id: 6, firstName: "Jack", lastName: "Reacher", email: "jack.reacher@metacube.com", mobNumber: "9007812345" }
-        ];
+    function ContactListComponent(_contactListService) {
+        this._contactListService = _contactListService;
+        this.contactList = _contactListService.getContactList();
     }
     ContactListComponent = __decorate([
         core_1.Component({
             selector: 'contact-list',
             templateUrl: "app/templates/contact-list.tpl.html",
             styles: ['.search-box { width:180px }'],
-            directives: [autogrow_directive_1.AutoGrowDirective]
+            directives: [autogrow_directive_1.AutoGrowDirective],
+            providers: [contact_list_service_1.ContactListService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [contact_list_service_1.ContactListService])
     ], ContactListComponent);
     return ContactListComponent;
 }());
