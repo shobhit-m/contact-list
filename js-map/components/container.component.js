@@ -9,7 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var header_component_1 = require("./header.component");
+var header_component_1 = require('./header.component');
+var contact_list_component_1 = require('./contact-list.component');
 var ContainerComponent = (function () {
     function ContainerComponent() {
     }
@@ -17,7 +18,7 @@ var ContainerComponent = (function () {
         core_1.Component({
             selector: 'container',
             templateUrl: "app/templates/container.tpl.html",
-            directives: [header_component_1.HeaderComponent]
+            directives: [header_component_1.HeaderComponent, contact_list_component_1.ContactListComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], ContainerComponent);
