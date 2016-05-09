@@ -1,10 +1,13 @@
 import { Component } from "@angular/core";
 
 import { Contact } from "../models/contact";
+import { AutoGrowDirective } from "../directives/autogrow.directive";
 
 @Component({
   selector: 'contact-list',
   templateUrl: "app/templates/contact-list.tpl.html",
+  styles: ['.search-box { width:180px }'],
+  directives: [AutoGrowDirective]
 })
 
 export class ContactListComponent {

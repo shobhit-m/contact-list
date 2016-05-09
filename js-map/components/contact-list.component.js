@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var autogrow_directive_1 = require("../directives/autogrow.directive");
 var ContactListComponent = (function () {
     function ContactListComponent() {
         this.contactList = [
@@ -24,6 +25,8 @@ var ContactListComponent = (function () {
         core_1.Component({
             selector: 'contact-list',
             templateUrl: "app/templates/contact-list.tpl.html",
+            styles: ['.search-box { width:180px }'],
+            directives: [autogrow_directive_1.AutoGrowDirective]
         }), 
         __metadata('design:paramtypes', [])
     ], ContactListComponent);
