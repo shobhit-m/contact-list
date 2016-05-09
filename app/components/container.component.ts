@@ -1,8 +1,11 @@
 import {Component} from "@angular/core";
 
+import { HeaderComponent } from './header.component';
+
 @Component ({
   selector: 'container',
-  template: "<h2>Hello Angular 2!! </h2>",
+  templateUrl: "app/templates/container.tpl.html",
+  directives: [HeaderComponent]
 })
 
 export class ContainerComponent { }
