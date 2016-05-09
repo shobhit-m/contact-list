@@ -1,12 +1,14 @@
 import { Component } from "@angular/core";
 
+import { Contact } from "../models/contact";
+
 @Component({
   selector: 'contact-list',
   templateUrl: "app/templates/contact-list.tpl.html",
 })
 
 export class ContactListComponent {
-  contactList: any[] = [
+  contactList: Contact[] = [
     { id: 1, firstName: "Kishan", lastName: "Yadav", email: "kishan.yadav@metacube.com", mobNumber: "9414234126" },
     { id: 2, firstName: "Ram", lastName: "Sharma", email: "ram.sharma@metacube.com", mobNumber: "9432456781" },
     { id: 3, firstName: "Lakshman", lastName: "Singh", email: "lakshman.singh@metacube.com", mobNumber: "9876567856" },
