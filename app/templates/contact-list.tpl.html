@@ -17,7 +17,7 @@
   <div class="row">
     <div class="col-md-8  col-md-offset-2">
       <div class="list-group">
-        <div class="list-group-item" *ngFor="let contact of contactList">
+        <div class="list-group-item" *ngFor="let contact of contactList | search:searchText">
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-4">
