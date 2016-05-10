@@ -19,7 +19,7 @@ export class ContactListService {
       throw new Error('Bad response status: ' + res.status);
     }
     let body = res.json();
-    return body || { };
+    return body.data || { };
   }
   private handleError (error: any) {
     // In a real world app, we might send the error to remote logging infrastructure
