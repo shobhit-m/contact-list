@@ -1,28 +1,37 @@
 import { Injectable } from "@angular/core";
+import { Http, Response } from '@angular/http';
+import { Observable }     from 'rxjs/Observable';
+import 'rxjs/Rx';
 
 import { Contact } from "../models/contact";
-import { CONTACTLIST } from "../mock-contact-list";
+
 
 @Injectable()
 
 export class ContactListService {
   private _contact: Contact;
+  private _contactListUrl = 'app/contact-list.json';  // URL to web api
 
-  getContactList(): Contact[] {
-    return CONTACTLIST;
+  constructor (private http: Http) { }
+
+  private extractData(res: Response) {
+    if (res.status < 200 || res.status >= 300) {
+      throw new Error('Bad response status: ' + res.status);
+    }
+    let body = res.json();
+    return body || { };
+  }
+  private handleError (error: any) {
+    // In a real world app, we might send the error to remote logging infrastructure
+    let errMsg = error.message || 'Server error';
+    console.error(errMsg); // log to console instead
+    return Observable.throw(errMsg);
   }
 
-  getContact(id): Contact {
-    return CONTACTLIST.find((item)=> item.id === id)
+  getContactList(): Observable<Contact[]> {
+    return this.http.get(this._contactListUrl)
+                    .map(this.extractData)
+                    .catch(this.handleError);
   }
 
-  saveContact(contact: Contact) {
-    contact.id = new Date().getTime();
-    CONTACTLIST.push(contact);
-  }
-
-  updateContact(contact: Contact) {
-    this._contact = this.getContact(contact.id);
-    this._contact = contact;
-  }
 }

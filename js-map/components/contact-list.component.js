@@ -13,8 +13,9 @@ var autogrow_directive_1 = require("../directives/autogrow.directive");
 var contact_list_service_1 = require("../services/contact-list.service");
 var ContactListComponent = (function () {
     function ContactListComponent(_contactListService) {
+        var _this = this;
         this._contactListService = _contactListService;
-        this.contactList = _contactListService.getContactList();
+        this._contactListService.getContactList().subscribe(function (contactList) { return _this.contactList = contactList; }, function (error) { return _this.errorMessage = error; });
     }
     ContactListComponent = __decorate([
         core_1.Component({

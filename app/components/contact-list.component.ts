@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Observable }     from 'rxjs/Observable';
 
 import { Contact } from "../models/contact";
 import { AutoGrowDirective } from "../directives/autogrow.directive";
@@ -14,9 +15,12 @@ import { ContactListService } from "../services/contact-list.service";
 
 export class ContactListComponent {
   contactList: Contact[];
+  errorMessage: any;
 
   constructor(private _contactListService: ContactListService){
-    this.contactList = _contactListService.getContactList();
+    this._contactListService.getContactList().subscribe(
+                     contactList => this.contactList = contactList,
+                     error =>  this.errorMessage = <any>error);
   }
 
 }

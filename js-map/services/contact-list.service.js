@@ -9,27 +9,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var mock_contact_list_1 = require("../mock-contact-list");
+var http_1 = require('@angular/http');
+var Observable_1 = require('rxjs/Observable');
+require('rxjs/Rx');
 var ContactListService = (function () {
-    function ContactListService() {
+    function ContactListService(http) {
+        this.http = http;
+        this._contactListUrl = 'app/contact-list.json'; // URL to web api
     }
+    ContactListService.prototype.extractData = function (res) {
+        if (res.status < 200 || res.status >= 300) {
+            throw new Error('Bad response status: ' + res.status);
+        }
+        var body = res.json();
+        return body || {};
+    };
+    ContactListService.prototype.handleError = function (error) {
+        // In a real world app, we might send the error to remote logging infrastructure
+        var errMsg = error.message || 'Server error';
+        console.error(errMsg); // log to console instead
+        return Observable_1.Observable.throw(errMsg);
+    };
     ContactListService.prototype.getContactList = function () {
-        return mock_contact_list_1.CONTACTLIST;
-    };
-    ContactListService.prototype.getContact = function (id) {
-        return mock_contact_list_1.CONTACTLIST.find(function (item) { return item.id === id; });
-    };
-    ContactListService.prototype.saveContact = function (contact) {
-        contact.id = new Date().getTime();
-        mock_contact_list_1.CONTACTLIST.push(contact);
-    };
-    ContactListService.prototype.updateContact = function (contact) {
-        this._contact = this.getContact(contact.id);
-        this._contact = contact;
+        return this.http.get(this._contactListUrl)
+            .map(this.extractData)
+            .catch(this.handleError);
     };
     ContactListService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], ContactListService);
     return ContactListService;
 }());
