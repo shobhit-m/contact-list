@@ -15,12 +15,14 @@ import { ContactListService } from "../services/contact-list.service";
 
 export class ContactListComponent {
   contactList: Contact[];
+  //contactList: Observable<Contact[]>;
   errorMessage: any;
 
   constructor(private _contactListService: ContactListService){
-    this._contactListService.getContactList().subscribe(
-                     contactList => this.contactList = contactList,
-                     error =>  this.errorMessage = <any>error);
+     this._contactListService.getContactList().subscribe(
+                      contactList => this.contactList = contactList,
+                      error =>  this.errorMessage = <any>error);
+    //this.contactList = this._contactListService.getContactList();
   }
 
 }
