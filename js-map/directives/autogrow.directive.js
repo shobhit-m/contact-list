@@ -10,14 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var AutoGrowDirective = (function () {
-    function AutoGrowDirective(_el) {
+    function AutoGrowDirective(_el, _renderer) {
         this._el = _el;
+        this._renderer = _renderer;
     }
     AutoGrowDirective.prototype.onFocus = function () {
-        this._el.nativeElement.style.width = "537px";
+        this._renderer.setElementStyle(this._el.nativeElement, 'width', '537');
     };
     AutoGrowDirective.prototype.onBlur = function () {
-        this._el.nativeElement.style.width = "180px";
+        this._renderer.setElementStyle(this._el.nativeElement, 'width', '180');
     };
     AutoGrowDirective = __decorate([
         core_1.Directive({
@@ -27,7 +28,7 @@ var AutoGrowDirective = (function () {
                 '(blur)': 'onBlur()'
             }
         }), 
-        __metadata('design:paramtypes', [core_1.ElementRef])
+        __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer])
     ], AutoGrowDirective);
     return AutoGrowDirective;
 }());
