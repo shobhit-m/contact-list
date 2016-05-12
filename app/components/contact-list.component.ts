@@ -4,6 +4,8 @@ import { Contact } from "../models/contact";
 import { AutoGrowDirective } from "../directives/autogrow.directive";
 import { ContactListService } from "../services/contact-list.service";
 
+
+
 @Component({
   selector: 'contact-list',
   templateUrl: "app/templates/contact-list.tpl.html",

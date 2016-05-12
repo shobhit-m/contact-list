@@ -1,9 +1,12 @@
 import { Injectable } from "@angular/core";
-
 import { Contact } from "../models/contact";
 
 @Injectable()
-
+// ContactService -> list of hardcoded contacts.
+// Just a class and exported
+// Logic sharing
+// variety of things
+// Role of Service
 export class ContactListService {
   private _contact: Contact;
   private _contactList: Contact[] = [
