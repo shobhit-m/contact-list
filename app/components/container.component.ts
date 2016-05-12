@@ -5,4 +5,8 @@ import {Component} from "@angular/core";
   template: "<h2>Hello Angular 2!! </h2>",
 })
 
-export class ContainerComponent { }
+export class ContainerComponent {
+  // properties
+
+  // methods
+}
