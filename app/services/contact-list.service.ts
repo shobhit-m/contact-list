@@ -12,9 +12,17 @@ import { Contact } from "../models/contact";
 
 export class ContactListService {
   private _contact: Contact;
-  private _contactListUrl = 'app/contact-list.json';  // URL to web api
+  private _contactListUrl = 'app/contact-list123.json';  // URL to web api
 
   constructor (private http: Http) { }
+
+  private extractData(res: Response) {
+    if (res.status < 200 || res.status >= 300) {
+      throw new Error('Bad response status: ' + res.status);
+    }
+    let body = res.json().data;
+    return body || { };
+  }
 
   private handleError (error: any) {
     // In a real world app, we might send the error to remote logging infrastructure
@@ -23,9 +31,11 @@ export class ContactListService {
     return Observable.throw(errMsg);
   }
 
+  // fat arrow functions or lamda expression. it makes simple for you to create a function.
   getContactList(): Observable<Contact[]> {
     return this.http.get(this._contactListUrl)
                     .map((response: Response) => response.json().data)
+                    //.map(this.extractData)
                     .catch(this.handleError);
   }
 
