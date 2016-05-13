@@ -1,0 +1,17 @@
+<img [src]="imagePath" />
+<img bind-src="imagePath" />
+
+<button (click)="onClick()">Click Me</button>
+<button on-click="onClick()">Click Me</button>
+
+<input [(ngModel)]="title" type="text"/>
+<input [value]="title" (input)="title = $event.target.value" type="text"/>
+
+
+
+title = "Shobhit";
+imagePath = "https://angular.io/resources/images/logos/standard/shield-large.png";
+
+onClick(){
+  alert("button clicked");
+}
