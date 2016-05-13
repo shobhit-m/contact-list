@@ -12,7 +12,7 @@ import { Contact } from "../models/contact";
 
 export class ContactListService {
   private _contact: Contact;
-  private _contactListUrl = 'app/contact-list123.json';  // URL to web api
+  private _contactListUrl = 'app/contact-list.json';  // URL to web api
 
   constructor (private http: Http) { }
 
