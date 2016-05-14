@@ -19,5 +19,6 @@ export class ContactListComponent {
     { id: 5, firstName: "Lucy", lastName: "Doe", email: "lucy.doe@metacube.com", mobNumber: "9786533212" },
     { id: 6, firstName: "Jack", lastName: "Reacher", email: "jack.reacher@metacube.com", mobNumber: "9007812345" }
   ];
+  // hard coded here, but in real world apps, service should return this.
 
 }
