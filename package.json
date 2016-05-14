@@ -3,7 +3,6 @@
   "name": "angular2-quickstart",
   "version": "1.0.0",
   "scripts": {
-    "preinstall": "npm i typings -g",
     "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "lite": "lite-server",
     "postinstall": "typings install",
@@ -32,14 +31,10 @@
     "angular2-in-memory-web-api": "0.0.7",
     "bootstrap": "^3.3.6"
   },
-  "optionalDependencies": {
+  "devDependencies": {
     "concurrently": "^2.0.0",
     "lite-server": "^2.2.0",
     "typescript": "^1.8.10",
     "typings":"^0.8.1"
-  },
-  "engines": {
-    "node": "6.0",
-    "npm": "3.7.3"
   }
 }
